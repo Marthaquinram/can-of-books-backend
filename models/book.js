@@ -1,4 +1,4 @@
-/* eslint-disable max-len */
+
 'use strict';
 
 const mongoose = require('mongoose');
@@ -6,7 +6,7 @@ const mongoose = require('mongoose');
 const bookSchema = new mongoose.Schema({
   title: {type: String, required: true},
   description: {type: String, required: true},
-  status: {type: String, enum: [' My Personal Favs', 'In your Feels', 'CHILLING STORIES', 'Healing yourself']},
+  status: {type: String, enum: ['My Personal Favs', 'In your Feels', 'CHILLING STORIES', 'Healing yourself']},
 });
 
 // use schema to craft a book model
