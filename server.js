@@ -9,10 +9,13 @@ const getBooks = require('./modules/handlers');
 
 const app = express();
 app.use(cors());
+app.use(express.json());
 
 const PORT = process.env.PORT || 3002;
 
+
 const mongoose = require('mongoose');
+const bookModel = require('./models/book');
 // making a database called cats-database
 // connecting to our mongo DB hosted on Atlas
 mongoose.connect(process.env.MONGODB_CONNECT);
@@ -21,7 +24,7 @@ mongoose.connect(process.env.MONGODB_CONNECT);
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 // this is our success message from mongo!
-db.once('open', function() {
+db.once('open', function () {
   console.log('Mongoose is connected to Atlas!');
 });
 
@@ -30,8 +33,25 @@ app.get('/test', (request, response) => {
   response.send('test request received');
 });
 
-app.use((error, request, response, next ) =>{
+app.use((error, request, response, next) => {
   response.status(500).send(`My Bad! ERROR occurred in the server! Someone call the Developer... ${error.message}`);
+});
+
+// lab12 card 1 starts here (add new route and handler function to respond to POST requests to /books
+
+
+// all books
+app.get('/books', async (request, response) => {
+  const books = await bookModel.find({});
+  response.send(books);
+});
+
+
+// create a book -- this bit from demo
+app.post('/books', async (request, response) => {
+  const { title, description, status } = request.body;
+  const newBook = await bookModel.create({ title, description, status });
+  res.send(newBook);
 });
 
 
