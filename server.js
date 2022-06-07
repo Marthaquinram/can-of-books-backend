@@ -1,5 +1,3 @@
-
-
 'use strict';
 
 require('dotenv').config();
@@ -28,10 +26,10 @@ db.once('open', function () {
   console.log('Mongoose is connected to Atlas!');
 });
 
-app.get('/books', getBooks);
+app.get('/books', getBooks); //will be refactored
 app.get('/test', (request, response) => {
   response.send('test request received');
-});
+});  TODO: //may have to refactor
 
 app.use((error, request, response, next) => {
   response.status(500).send(`My Bad! ERROR occurred in the server! Someone call the Developer... ${error.message}`);
@@ -44,14 +42,14 @@ app.use((error, request, response, next) => {
 app.get('/books', async (request, response) => {
   const books = await bookModel.find({});
   response.send(books);
-});
+}); // TODO: may have to refactor
 
 
 // create a book -- this bit from demo
 app.post('/books', async (request, response) => {
   const { title, description, status } = request.body;
   const newBook = await bookModel.create({ title, description, status });
-  res.send(newBook);
+  response.send(newBook);
 });
 
 
