@@ -3,7 +3,8 @@
 require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
-const getBooks = require('./modules/handlers');
+const { getBooks, deleteBook } = require('./modules/handlers');
+
 
 const app = express();
 app.use(cors());
@@ -52,6 +53,7 @@ app.post('/books', async (request, response) => {
   response.send(newBook);
 });
 
+app.delete('/books/:id', deleteBook);
 
 //this will always be the last line of code.
 app.listen(PORT, () => console.log(`listening on ${PORT}`));
