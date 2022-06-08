@@ -139,3 +139,15 @@ Start time: 1:00pm
 Finish time: 1:35pm
 
 Actual time needed to complete: 35 mins
+
+
+
+Name of feature: Lab 13 Card 1 Update - add for in the front end to let user edit existing book details
+
+Estimate of time needed to complete: 2 hrs
+
+Start time: 2:03pm
+
+Finish time: 3:03pm
+
+Actual time needed to complete: 1 hour
