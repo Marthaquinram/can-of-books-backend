@@ -41,6 +41,8 @@ Technologies used have been: HTML. Microsoft Word, React, Local Host, GitHub, Ne
 
 06/07/2022 at 2pm - 6:30pm, 8:15pm - 9:30pm Driver is Vida, Navigator was Natalija and Martha
 
+06-8-2022 at 1:00pm - 1:35pm Driver Martha, Navigator was Natalija
+
 ## Credit and Collaborations
 
 Natalija Germek and Vida Powell, Justin Hammerly (Remo TA) helped troubleshoot delete handler issue.
@@ -128,12 +130,12 @@ Finish time: 9:30pm
 Actual time needed to complete: 3 hrs 30 mins.
 
 
-Name of feature: Lab 13 Card 1 Update
+Name of feature: Lab 13 Card 1 Update - add server to handle PUT request book :id
 
 Estimate of time needed to complete: 2 hrs
 
-Start time: not started yet 
+Start time: 1:00pm
 
-Finish time: n/a
+Finish time: 1:35pm
 
-Actual time needed to complete: n/a
+Actual time needed to complete: 35 mins

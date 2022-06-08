@@ -3,13 +3,13 @@
 require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
-const { getBooks, deleteBook } = require('./modules/handlers');
+const { getBooks, deleteBook, updatedBook } = require('./modules/handlers');
 
 
 const app = express();
 app.use(cors());
 app.use(express.json());
-
+app.put('/books/:id',updatedBook );
 const PORT = process.env.PORT || 3002;
 
 
@@ -30,7 +30,7 @@ db.once('open', function () {
 app.get('/books', getBooks); //will be refactored
 app.get('/test', (request, response) => {
   response.send('test request received');
-});  TODO: //may have to refactor
+}); TODO: //may have to refactor
 
 app.use((error, request, response, next) => {
   response.status(500).send(`My Bad! ERROR occurred in the server! Someone call the Developer... ${error.message}`);
