@@ -43,7 +43,7 @@ Technologies used have been: HTML. Microsoft Word, React, Local Host, GitHub, Ne
 
 06/8/2022 at 1:00pm - 1:35pm Driver Martha, Navigator was Natalija
 
-06/09/2022 at 9:44pm started and finalized working Auth0 and Lab 15 with Natalija and Martha through mob programming.
+06/09/2022 at 9:44pm - 1am started and finalized working Auth0 and Lab 15 with Natalija and Martha through mob programming.
 
 ## Credit and Collaborations
 
