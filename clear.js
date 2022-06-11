@@ -1,19 +1,21 @@
-// const mongoose = require('mongoose');
-// require('dotenv').config();
+'use strict';
 
-// mongoose.connect(process.env.MONGODB_CONNECT);
+const mongoose = require('mongoose');
+require('dotenv').config();
 
-// const Book = require('./models/book');
+mongoose.connect(process.env.MONGODB_CONNECT);
 
-// async function clear() {
-//   try {
-//     await Book.deleteMany({});
-//     console.log('Book clear');
-//   } catch(err) {
-//     console.error(err);
-//   } finally {
-//     mongoose.disconnect();
-//   }
-// }
+const Book = require('./models/book');
 
-// clear();
+async function clear() {
+  try {
+    await Book.deleteMany({});
+    console.log('Book clear');
+  } catch(err) {
+    console.error(err);
+  } finally {
+    mongoose.disconnect();
+  }
+}
+
+clear();

@@ -4,7 +4,7 @@ const BookModel = require('../models/book');
 
 async function getBooks(request, response, next) {
   try {
-    const books = await BookModel.find({});
+    const books = await BookModel.find({email: request.user.email});
     response.status(200).send(books);
   } catch (error) {
     console.error(error);
@@ -14,9 +14,13 @@ async function getBooks(request, response, next) {
 
 const deleteBook = async (request, response, next) => {
   try {
-    await BookModel.findByIdAndDelete(request.params.id);
-    response.status(204);
 
+    const bookToBeDeleted = await BookModel.findOne({_id: request.params.id,email: request.user.email});
+    if (!bookToBeDeleted) response.status(404).send('Unable to find that book to delete');
+    else {
+      await BookModel.findByIdAndDelete(request.params.id);
+      response.status(200).send('Book was sucessfully deleted');
+    }
   } catch (error) {
     error.customMessage = 'Something went wrong with deleting your book!';
     console.error(error.customMessage + error);
@@ -35,4 +39,10 @@ let updatedBook = async (request, response, next) => {
     next(error);
   }
 };
-module.exports = { getBooks, deleteBook, updatedBook };
+
+let handleGetUser = async (request,response) => {
+  console.log('Getting the user');
+  response.send(request.user);
+};
+
+module.exports = { getBooks, deleteBook, updatedBook, handleGetUser };
