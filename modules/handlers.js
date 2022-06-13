@@ -3,6 +3,7 @@
 const BookModel = require('../models/book');
 
 async function getBooks(request, response, next) {
+  console.log(request.user.email);
   try {
     const books = await BookModel.find({email: request.user.email});
     response.status(200).send(books);

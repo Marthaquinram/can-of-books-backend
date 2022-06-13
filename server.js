@@ -32,11 +32,11 @@ app.get('/test', (request, response) => {
 
 
 //routes AKA end points
-app.get('/books', getBooks); //will be refactored
-app.get('/books', async (request, response) => {
-  const books = await bookModel.find({});
-  response.send(books);
-});
+ app.get('/books', getBooks); //will be refactored
+// app.get('/books', async (request, response) => {
+//   const books = await bookModel.find({});
+//   response.send(books);
+// });
 app.delete('/books/:id', deleteBook);
 app.put('/books/:id', updatedBook);
 app.get('/user', handleGetUser);
